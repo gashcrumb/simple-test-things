@@ -40,9 +40,3 @@ Add the example configuration snippet below to your app-config.local.yaml.
 ```bash
 yarn start
 ```
-
-## Verify the Plugin was Loaded Correctly
-
-- An "Administration" navigation item should appear above the settings link which has two tabs.
-- A green card with the text "System card text" should appear in the system Overview page.
-- A green card with the text "Component card text" should appear in the component Overview page.
