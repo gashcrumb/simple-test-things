@@ -1,4 +1,4 @@
-# simple-test-components
+# simple-test-things
 
 This plugin has been extracted out of a normal backstage project and set up as a dynamic plugin that can be loaded into Janus/RHDH to be used as a simple placeholder element.
 
@@ -26,141 +26,13 @@ yarn export-dynamic
 Add the example configuration snippet below to your app-config.local.yaml.
 
 ```yaml
-dynamicPlugins:
-  frontend:
-    backstage-plugin-simple-test-components:
-      dynamicRoutes:
-        - path: /admin/rbac
-          importName: SimpleTestComponentsPage
-        - path: /admin/plugins
-          importName: SimpleTestComponentsPage
+    simple-test-things:
       mountPoints:
-        - mountPoint: admin.page.rbac/cards
-          importName: SimpleTestComponentsPage
+        - mountPoint: custom.mount.point
+          importName: TestInfoCard
           config:
-            layout:
-              gridColumn: "1 / -1"
-              width: 100vw
             props:
-              text: "RBAC tab content would be here"
-        - mountPoint: admin.page.plugins/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "1 / -1"
-              width: 100vw
-            props:
-              text: "Plugin tab content would be here"
-        - mountPoint: entity.page.overview/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumnEnd:
-                lg: "span 2"
-                md: "span 2"
-                xs: "span 2"
-            props:
-              text: "System card text"
-            if:
-              allOf:
-                - isKind: system
-        - mountPoint: entity.page.overview/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumnEnd:
-                lg: "span 2"
-                md: "span 2"
-                xs: "span 2"
-            props:
-              text: "Component card text"
-            if:
-              allOf:
-                - isKind: component
-```
-
-Here is another example configuration featuring some conditionals and customized tabs:
-
-```
-dynamicPlugins:
-  frontend:
-    backstage-plugin-simple-test-components:
-      entityTabs:
-        - path: /
-          title: General
-          mountPoint: entity.page.overview
-        - path: /api
-          title: Api    
-          mountPoint: entity.page.api
-        - path: /api
-          title: Api    
-          mountPoint: entity.page.api
-        - path: /dependencies
-          title: External Things
-          mountPoint: entity.page.external
-        - path: /foobar
-          title: Foobar Things
-          mountPoint: entity.page.foobar
-      mountPoints:
-        - mountPoint: entity.page.foobar/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "1 / 7"
-              gridRow: "1 / 5"
-            if:
-              allOf:
-                - isAvailableUsingContext
-            props:
-              text: 'Some content on the foobar page'
-        - mountPoint: entity.page.foobar/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "span 6"
-              gridRow: "span 3"
-            props:
-              text: 'Some other content on the foobar page'
-        - mountPoint: entity.page.overview/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "span 1"
-              gridRow: "span 1"
-            if:
-              allOf:
-                - isAvailableNo
-            props:
-              text: 'Content Block One (never available)'
-        - mountPoint: entity.page.overview/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "span 1"
-              gridRow: "span 1"
-            if:
-              allOf:
-                - isAvailableYes
-            props:
-              text: 'Content Block Two (always available)'
-        - mountPoint: entity.page.overview/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "span 1"
-              gridRow: "span 1"
-            if:
-              allOf:
-                - isAvailableUsingContext
-            props:
-              text: 'Content Block Three (available using context)'
-        - mountPoint: entity.page.external/cards
-          importName: SimpleTestComponentsPage
-          config:
-            layout:
-              gridColumn: "1 / 1"
-            props:
-              text: 'Some Content on the Dependencies Page'
+              text: 'This is from the simple-test-things plugin'
 ```
 
 ## Run the Showcase App
